@@ -10,7 +10,7 @@ upcoming_exams = {"Algorithm Exam":"April 10th, Wednesday"}
 current_projects = ["LibreTunes", "Discord-Bot", "Improv"]
 
 #Things I need to do to get smarter and better at my craft represented as a list
-get_smarter = ["LeetCode", "AWS CCP Training"]
+get_smarter = ["LeetCode", "AWS CCP Training", "Learn Korean"]
 
 #Things I need to do represented as a list
 what_to_do = [assignments, upcoming_exams, current_projects, get_smarter]
@@ -77,5 +77,6 @@ def get_todo_list():
 
 def get_what_to_do():
     return what_to_do   
+
 
 

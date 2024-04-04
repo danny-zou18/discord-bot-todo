@@ -31,13 +31,13 @@ def generate_embed(todo_list: List[str], day: str) -> Embed:
         exam_str += f"{key}: {value}\n"
     exam_str += "\n"
 
-    project_str: str = "**Current Projects:** \n"
+    project_str: str = "**Current Active Projects:** \n"
     for project in current_projects:
         project_str += f"{project}\n"
     project_str += "\n"
     
 
-    smarter_str: str = "**Get Smarter:** \n"
+    smarter_str: str = "**Improve Mentally:** \n"
     for smarter in get_smarter:
         smarter_str += f"{smarter}\n"
     smarter_str += "\n"
@@ -49,6 +49,8 @@ def generate_embed(todo_list: List[str], day: str) -> Embed:
     embed.set_author(name="DotBot")
 
     embed.set_thumbnail(url="https://dan.onl/images/emptysong.jpg")
+
+    
 
 
     return embed
