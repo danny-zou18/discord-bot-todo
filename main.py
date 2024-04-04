@@ -13,8 +13,15 @@ intents: Intents = Intents.default() #Get intents
 intents.message_content = True #NOQA #Get message content
 client: Client = Client(intents=intents) #Get client
 
+
+
 #Generate an embed based on the day
 def generate_embed(todo_list: List[str], day: str) -> Embed:
+
+    def parse_activity(string: str):
+        parts = string.split('-')
+        return parts
+
     what_to_do = get_what_to_do()
     assignments: Dict[str, str] = what_to_do[0]
     upcoming_exams: Dict[str, str] = what_to_do[1]
@@ -43,15 +50,19 @@ def generate_embed(todo_list: List[str], day: str) -> Embed:
     smarter_str += "\n"
 
     embed = Embed(title=f"{day}'s Schedule", 
-                    description=f"--------------------------------\n\n{assignment_str} {exam_str} {project_str} {smarter_str}\n",
+                    description=f"--------------------------------\n\n{assignment_str} {exam_str} {project_str} {smarter_str}--------------------------------\n",
                     color=0x315b9e, timestamp=datetime.datetime.now())
     
     embed.set_author(name="DotBot")
 
     embed.set_thumbnail(url="https://dan.onl/images/emptysong.jpg")
 
-    
-
+    for act in todo_list:
+        parts = parse_activity(act)
+        if len(parts) == 2:
+            embed.add_field(name=f"{parts[0]} - {parts[1]}", value="", inline=False) 
+        else:
+            embed.add_field(name=f"{parts[0]}-->{parts[1]} - {parts[2]}", value="", inline=False) 
 
     return embed
 

@@ -24,42 +24,42 @@ morning_hygiene = "8:30am - 9:00am - Brush Teeth, Shower"
 #Monday, Thursday
 awg_ccp_training = "9:00am - 9:30am - AWG CCP Training"
 go_to_cogpsyc = "9:30am - 10:00am - Go to CogPsyC"
-cogpysc = "!10:00am - 12:00am - CogPsyC"
+cogpysc = "10:00am - 12:00am - CogPsyC"
 
 #Monday
-monday_work = "!12:00pm - 01:00pm - Work"
+monday_work = "12:00pm - 01:00pm - Work"
 monday_lunch = "01:00pm - 02:00pm - Lunch"
-monday_work2 = "!02:00pm - 04:00pm - Work"
+monday_work2 = "02:00pm - 04:00pm - Work"
 monday_gym = "04:00pm - 05:30pm - Gym"
 
 #Tuesday
-tuesday_work_study = "!12:00pm - 02:00pm - Work Study"
+tuesday_work_study = "12:00pm - 02:00pm - Work Study"
 tuesday_lunch = "02:00pm - 03:00pm - Lunch"
-tuesday_work = "!03:00pm - 04:00pm - Work"
+tuesday_work = "03:00pm - 04:00pm - Work"
 tuesday_gym = "04:00pm - 05:30pm - Gym"
 
 #Wednesday
-wednesday_work = "!9:00pm - 11:00pm - Work"
-wednesday_work_study = "!12:00pm - 02:00pm - Work Study"
+wednesday_work = "9:00pm - 11:00pm - Work"
+wednesday_work_study = "12:00pm - 02:00pm - Work Study"
 wednesday_lunch = "02:00pm - 03:00pm - Lunch"
-wednesday_work = "!03:00pm - 05:00pm - Work"
+wednesday_work = "03:00pm - 05:00pm - Work"
 wednesday_gym = "05:00pm - 06:30pm - Gym"
 
 #Thursday
-thursday_work = "!12:00pm - 01:00pm - Work"
+thursday_work = "12:00pm - 01:00pm - Work"
 thursday_lunch = "01:00pm - 02:00pm - Lunch"
-thursday_work_study = "!02:00pm - 04:00pm - Work Study"
+thursday_work_study = "02:00pm - 04:00pm - Work Study"
 thursday_gym = "04:00pm - 05:30pm - Gym"
 
 #Friday
-friday_work = "!12:00pm - 01:00pm - Work"
+friday_work = "12:00pm - 01:00pm - Work"
 friday_lunch = "01:00pm - 02:00pm - Lunch"
-friday_work2 = "!02:00pm - 04:00pm - Work Study"
+friday_work2 = "02:00pm - 04:00pm - Work Study"
 friday_gym = "04:00pm - 05:30pm - Gym"
 
 #Tuesday, Friday
 goto_psoft_algos = "9:00am - 9:20am - Go to Psoft/Algos"
-psoft_algos = "!9:20am - 11:50pm - Psoft/Algos"
+psoft_algos = "9:20am - 11:50pm - Psoft/Algos"
 
 #Root to do list, where the key is the day and the value is a list of things to do during that day
 todo_list = {
