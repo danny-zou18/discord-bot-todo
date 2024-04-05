@@ -1,4 +1,5 @@
 import datetime
+from typing import Dict, List
 
 #Current Assignments on my plate represented as a dictionary, where the key is the assignment and the value is the due date
 assignments = {}
@@ -77,6 +78,5 @@ def get_todo_list():
 
 def get_what_to_do():
     return what_to_do   
-
 
 
