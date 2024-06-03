@@ -15,6 +15,7 @@ async def interactions():
     raw_request = request.json
     return interact(raw_request)
 
+@verify_key_decorator(PUBLIC_KEY)
 def interact(raw_request):
     if raw_request["type"] == 1:
         response_data = {"type":1}
