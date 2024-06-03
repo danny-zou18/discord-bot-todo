@@ -1,0 +1,18 @@
+- name: hello
+  description: Say Hello!
+
+- name: echo
+  description: Echo message back to sender
+  options:
+    - name: message
+      description: The message to echo back
+      type: 3 #string
+      required: true
+
+- name: add_task
+  description: Add task to task list
+  options:
+    - name: task
+      description: the task to add
+      type: 3 #string
+      required: true
