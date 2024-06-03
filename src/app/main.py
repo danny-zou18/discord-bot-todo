@@ -1,13 +1,7 @@
-import os
 from flask import Flask, jsonify, request
 from mangum import Mangum
 from asgiref.wsgi import WsgiToAsgi
-from dotenv import load_dotenv
 from discord_interactions import verify_key_decorator
-
-load_dotenv()
-
-DISCORD_PUBLIC_KEY = os.getenv("PUBLIC_KEY")
 
 app = Flask(__name__)
 asgi_app = WsgiToAsgi(app)
@@ -21,7 +15,7 @@ async def interactions():
     return interact(raw_request)
 
 
-@verify_key_decorator(DISCORD_PUBLIC_KEY)
+@verify_key_decorator("1fd00a1eedaa0e600ef43e89c2678800127ad6841d7bbf43418e0fda0af90314")
 def interact(raw_request):
     if raw_request["type"] == 1:  # PING
         response_data = {"type": 1}  # PONG

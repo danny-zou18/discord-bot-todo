@@ -1,5 +1,4 @@
 flask
 mangum
 asgiref
-python-dotenv
 discord-interactions
