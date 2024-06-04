@@ -45,6 +45,10 @@ def interact(raw_request):
                 }
             )
             message_content = f"Task added successfully with ID: {task_id}"
+        elif command_name == "tasks":
+            tasks = get_all_tasks()
+            message_content = "\n".join([f"Task ID: {task['taskId']}, Description: {task['taskDescription']}, Status: {task['status']}" for task in tasks])
+
 
         response_data = {
             "type": 4,
@@ -52,6 +56,10 @@ def interact(raw_request):
         }
 
     return jsonify(response_data)
+
+def get_all_tasks():
+    response = table.scan()
+    return response['Items']
 
 
 if __name__ == "__main__":

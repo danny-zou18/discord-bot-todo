@@ -21,3 +21,8 @@
       description: The tasks to add
       type: 3 #string
       required: true
+
+- name: tasks
+  description: list all tasks
+
+  
