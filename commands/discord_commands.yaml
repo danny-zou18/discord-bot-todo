@@ -8,3 +8,16 @@
       description: The message to echo back.
       type: 3 # string
       required: true
+
+- name: addtask
+  description: add a task
+  options:
+    - name: id
+      description: the id of the task
+      type: 4 #integer
+      required: true
+
+    - name: task
+      description: The tasks to add
+      type: 3 #string
+      required: true
