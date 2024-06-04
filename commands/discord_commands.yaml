@@ -33,4 +33,6 @@
       type: 4 #integer
       required: true
 
-  
+- name: clear
+  description: clears all tasks
+
