@@ -10,3 +10,4 @@ cdk.out
 .env
 
 commands/register_commands.py
+commands/register_commands.py
