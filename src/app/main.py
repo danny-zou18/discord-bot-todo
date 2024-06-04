@@ -3,6 +3,7 @@ from mangum import Mangum
 from asgiref.wsgi import WsgiToAsgi
 from discord_interactions import verify_key_decorator
 import boto3
+from botocore.exceptions import ClientError
 import os
 
 app = Flask(__name__)
@@ -30,25 +31,49 @@ def interact(raw_request):
 
         if command_name == "hello":
             message_content = "Hello there!"
+
         elif command_name == "echo":
             original_message = data["options"][0]["value"]
             message_content = f"Echoing: {original_message}"
+
         elif command_name == "addtask":
             task_id = data["options"][0]["value"]
             task_description = data["options"][1]["value"]
 
-            table.put_item(
-                Item={
-                    'taskId': task_id,
-                    'taskDescription': task_description,
-                    'status': 'pending'
-                }
-            )
-            message_content = f"Task added successfully with ID: {task_id}"
+            try:
+                response = table.put_item(
+                    Item={
+                        'taskId': task_id,
+                        'taskDescription': task_description,
+                        'status': 'pending'
+                    }
+                )
+                message_content = f"Task added successfully with ID: {task_id}"
+            except ClientError as e:
+                if e.response['Error']['Code'] == "ConditionalCheckFailedException":
+                    message_content = f"Task with ID: {task_id} already exists."
+                else:
+                    raise
+
         elif command_name == "tasks":
             tasks = get_all_tasks()
             message_content = "\n".join([f"Task ID: {task['taskId']}, Description: {task['taskDescription']}, Status: {task['status']}" for task in tasks])
 
+        elif command_name == "remove":
+            task_id = data["options"][0]["value"]
+
+            try:
+                response = table.delete_item(
+                    Key={
+                        'taskId': task_id
+                    }
+                )
+                message_content = f"Task with ID {task_id} removed successfully"
+            except ClientError as e:
+                if e.response['Error']['Code'] == "ConditionalCheckFailedException":
+                    message_content = f"Task with ID: {task_id} not found."
+                else:
+                    raise  # Raise the exception for unexpected errors 
 
         response_data = {
             "type": 4,
