@@ -25,4 +25,12 @@
 - name: tasks
   description: list all tasks
 
+- name: remove
+  description: removes a task
+  options: 
+    - name: task_id
+      description: the id of the task to be removed
+      type: 4 #integer
+      required: true
+
   
