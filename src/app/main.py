@@ -74,6 +74,21 @@ def interact(raw_request):
                     message_content = f"Task with ID: {task_id} not found."
                 else:
                     raise  # Raise the exception for unexpected errors 
+        elif command_name == "clear":
+            try:
+                with table.batch_writer() as batch:
+                    
+                    for task_id in get_all_task_ids():
+
+                        batch.delete_item(Key={'taskId': task_id})
+
+                message_content = "Task list cleared successfully."
+            except ClientError as e:
+                # Handle potential errors during deletion
+                if e.response['Error']['Code'] == "ProvisionedThroughputExceededException":
+                    message_content = "Failed to clear tasks. Please try again later."
+                else:
+                    raise  # Raise unexpected errors
 
         response_data = {
             "type": 4,
@@ -85,6 +100,10 @@ def interact(raw_request):
 def get_all_tasks():
     response = table.scan()
     return response['Items']
+
+def get_all_task_ids():
+    tasks = get_all_tasks()
+    return [task['taskId'] for task in tasks]
 
 
 if __name__ == "__main__":
