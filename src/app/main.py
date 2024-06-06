@@ -57,7 +57,7 @@ def interact(raw_request):
 
         elif command_name == "tasks":
             tasks = get_all_tasks()
-            message_content = "\n".join([f"Task ID: {task['taskId']}, Description: {task['taskDescription']}, Status: {task['status']}" for task in tasks])
+            message_content = "\n".join([f"```{task['taskDescription']} \t\t\t - \t\t\t Task ID: {task['taskId']}```" for task in tasks])
 
         elif command_name == "remove":
             task_id = data["options"][0]["value"]
