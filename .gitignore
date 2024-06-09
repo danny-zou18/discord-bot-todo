@@ -11,3 +11,5 @@ cdk.out
 
 commands/register_commands.py
 commands/register_commands.py
+
+.aws
