@@ -1,2 +1,4 @@
 pyyaml
 requests
+python-dotenv
+os
